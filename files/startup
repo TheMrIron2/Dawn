@@ -1,0 +1,32 @@
+function center(y,string)
+  local w,h = term.getSize()
+  local x = (w/2)-(#string/2)
+  term.setCursorPos(x,y)
+  print(string)
+end
+ 
+function centerSlow(y,string)
+  local w,h = term.getSize()
+  local x = (w/2)-(#string/2)
+  term.setCursorPos(x,y)
+  textutils.slowPrint(string)
+end
+
+if term.isColor() then
+--colour PC code
+term.setBackgroundColour(colours.grey)
+term.clear()
+term.setTextColour(colours.white)
+centerSlow(3,"Welcome to Dawn.")
+centerSlow(4,"Rising up from the darkness.")
+sleep(2)
+shell.run("/Menu")
+else --standard PC code
+term.setBackgroundColour(colours.white)
+term.clear()
+term.setTextColour(colours.black)
+centerSlow(3,"Welcome to Dawn.")
+centerSlow(4,"Rising up from the darkness.")
+sleep(2)
+shell.run("/Dawn/altMenu")
+end
