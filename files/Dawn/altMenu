@@ -1,0 +1,22 @@
+local function render()
+term.setBackgroundColour(colours.white)
+term.clear()
+term.setBackgroundColour(colours.black)
+term.setTextColour(colours.white)
+term.setCursorPos(1,1)
+term.clearLine()
+center(1,"Dawn")
+term.setBackgroundColour(colours.white)
+term.setTextColour(colours.black)
+center(3,"[1] Load Disk ")
+center(5,"[2] Info ")
+center(7,"[3] Shutdown ")
+end
+ 
+while true do render()
+  local event,key = os.pullEvent("key")
+  if key == keys.one then shell.run("/Dawn/altDisk")
+  elseif key == keys.two then shell.run("/Dawn/altInfo")
+  elseif key == keys.three then os.shutdown()
+  else end
+  end
